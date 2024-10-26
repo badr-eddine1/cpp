@@ -18,11 +18,11 @@ using namespace std;
         ordonnee=ord;
     }
     void afficher();
-    void remplire(point);
+    void remplire();
  };
- void point::remplire(point p){
+ void point::remplire(){
         cout <<"donnez les coordonne ";
-        cin >>p.abssisse>>p.ordonnee;
+        cin >>abssisse>>ordonnee;
 
   }
 void point::afficher(){
@@ -31,7 +31,7 @@ void point::afficher(){
   }
  int main(){
     point obj;
-    obj.remplire(obj);
+    obj.remplire();
     obj.afficher();
 
  }
