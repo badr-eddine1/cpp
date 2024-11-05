@@ -94,6 +94,19 @@ void bienLocation::afficherProp(){
     cout<< "le montant est"<<montantL<<endl;
     cout<< "l'occupation est "<<occupe<<endl;
 }
+class contractLocation{
+    location locataire;
+    bienLocation prop;
+    string dateD;
+    int dureeMois;
+    public :
+    contractLocation();
+    contractLocation(location loca,bienLocation p,string date,int d);
+    void afficherC();
+};
+contractLocation::contractLocation(){
+    location 
+}
 int main(){
     location L;
     bienLocation b("badr@gmail.com",200,0);
