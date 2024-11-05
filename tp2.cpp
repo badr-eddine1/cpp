@@ -67,12 +67,20 @@ class RepairTicket{
     void afficherrepair();
 };
 void RepairTicket::afficherrepair(){
-    cout<< "le model est "<<getPc()<<endl;
+    cout<< "jfkjanfkna"<<getPc<<endl;
     cout<< "la quantite de la ram est "<<getDescrip()<<endl;
     cout<< "la qnt disque hdd est"<<getDateResp()<<endl;
 
 }
 int main(){
     pc p;
+    RepairTicket r;
+    p.setModel("hp");
+    p.setQ(16);
+    p.setQn(512);
+    p.setpro("i7");
+    p.afficherpc();
+
+    
 
 }
