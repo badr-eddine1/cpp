@@ -105,7 +105,11 @@ class contractLocation{
     void afficherC();
 };
 contractLocation::contractLocation(){
-    location 
+    dateD="";
+    dureeMois=0;
+}
+contractLocation::contractLocation(lacation){
+
 }
 int main(){
     location L;
