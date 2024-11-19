@@ -25,8 +25,8 @@ class grille{
     cellule tab[3][3];
     public:
     void afficherGrille();
-    void jouer();
-    void 
+    void jouer(int c); 
+    bool gagner();
 
 };
 void grille::afficherGrille(){
@@ -34,47 +34,77 @@ void grille::afficherGrille(){
     cout<<"__________________________"<<endl;
     for(i=0;i<3;i++){
         for(j=0;j<3;j++){
-            cout<<"|"<<tab[i][j].afficherCellule()<<"||";
+            cout<<"|"<<tab[i][j].afficherCellule()<<"|";
         }
         cout<<"|"<<endl;
         
     }
     cout<<"__________________________"<<endl;
 }
-void grille::jouer(){
+void grille::jouer(int c){
     int i,j;
-    int x,y;
-    int valid;
-    
-    do{ 
-        
-    for(i=0;i<3;i++){
-        for(j=0;j<3;j++){
-            if(tab[i][j].afficherCellule()==" " ){
-                 valid=1;
-            }
-            else valid=0;}}
-    cout<< endl;
+    int x,y;  
+    int valid;     
+
     afficherGrille();
-    cout<< "joueur 1 a vous de jouer";
-    cout<< "donner les coordoner de la cellule que vous souhaitez occupe";
-    cin>>x,y;
-    if(i>3 || j>3){
+    cout<< "joueur" <<c<<"veuillez saisir la ligne :";
+    cin>>x;
+    cout<< "joueur" <<c<<"veuillez saisir la colone :";
+    cin>>y;
+    if(x>3 || y>3){
         cout<< "attention !! coordonne invalide";
     }
-    else if{
-        if(tab[i][j].afficherCellule()=="X" || tab[i][j].afficherCellule()=="O" ){
+    else if(tab[x][y].joueur==1 || tab[x][y].joueur==2 ){
+     
             cout<< " attention !! l'emplacement est occupe";
-        }
+        
     }
     else {
-        tab[i][j]="X";
+        tab[x][y].joueur=c;
     }
 }
-while(valid==1);}
+bool grille::gagner(){
+    int i,j=0,y=0;
+    int f;
+    for(i=0;i<3;i++){
+           
+            if(tab[i][i].joueur==1){
+                j++;
+            }
+            else if(tab[i][i].joueur==2){
+                y++;
+            }
+    }
+    if(y==3||j==3)return 1;
+    j=y=0;
+    for(i=0;i<3;i++){
+        for(f=0;f<3;f++){ 
+            if(tab[i][f].joueur==1){
+                j++;
+            }
+            else if(tab[i][f].joueur==2){
+                y++;
+            }
+    }
+       if(y==3||j==3)return 1;
+    }
+}
 
 int main(){
    grille g;
-   g.afficherGrille();
+
+
+    
+    do{
+        g.jouer(1);
+        g.afficherGrille();
+        g.jouer(2);
+        g.afficherGrille();
+    }while(g.gagner()!=1);
+
+   if(g.gagner()==1){
+    cout<< "vous avez gagner";
+   }
+
 }
 
